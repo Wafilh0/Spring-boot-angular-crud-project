@@ -189,16 +189,16 @@ public class TicketController {
 		return ResponseEntity.ok(response);
 	}
 		
-	@GetMapping(value = "{page}/{count}/{number}/{title}/{status}/{priority}") ///{assigned}
+	@GetMapping(value = "{page}/{count}/{number}/{title}/{status}/{priority}/{assigned}")
 	@PreAuthorize("hasAnyRole('CUSTOMER','TECHNICIAN')")
-    public  ResponseEntity<Response<Page<Ticket>>> findAByParams(HttpServletRequest request,
-																    @PathVariable int page,
+   	public  ResponseEntity<Response<Page<Ticket>>> findAByParams(HttpServletRequest request,				    
+								     								    @PathVariable int page,
 																    @PathVariable int count,
 																    @PathVariable Integer number,
 																    @PathVariable String title,
 																    @PathVariable String status,
-																    @PathVariable String priority) {//,
-																    /*@PathVariable boolean assigned)*/ {
+																    @PathVariable String priority,
+																    @PathVariable boolean assigned) {
 											
 		title = title.equals("Uniformed") ?"" : title;
 		status = status.equals("Uniformed") ?"" : status;
